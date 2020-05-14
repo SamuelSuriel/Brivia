@@ -19,7 +19,6 @@ namespace Brivia.Web.Controllers
             _context = context;
         }
 
-        // GET: Questions
         public async Task<IActionResult> Index()
         {
             return View(await _context.Questions.ToListAsync());
@@ -55,8 +54,10 @@ namespace Brivia.Web.Controllers
             if (ModelState.IsValid)
             {
                 questionEntity.Question = questionEntity.Question.ToUpper();
-                questionEntity.CorrectAnswer = questionEntity.CorrectAnswer.ToUpper();
-                questionEntity.IncorrectAnswers = questionEntity.IncorrectAnswers.ToUpper();
+                questionEntity.Answer1 = questionEntity.Answer1.ToUpper();
+                questionEntity.Answer2 = questionEntity.Answer2.ToUpper();
+                questionEntity.Answer3 = questionEntity.Answer3.ToUpper();
+                questionEntity.Answer4 = questionEntity.Answer4.ToUpper();
                 _context.Add(questionEntity);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -93,8 +94,10 @@ namespace Brivia.Web.Controllers
             if (ModelState.IsValid)
             {
                 questionEntity.Question = questionEntity.Question.ToUpper();
-                questionEntity.CorrectAnswer = questionEntity.CorrectAnswer.ToUpper();
-                questionEntity.IncorrectAnswers = questionEntity.IncorrectAnswers.ToUpper();
+                questionEntity.Answer1 = questionEntity.Answer1.ToUpper();
+                questionEntity.Answer2 = questionEntity.Answer2.ToUpper();
+                questionEntity.Answer3 = questionEntity.Answer3.ToUpper();
+                questionEntity.Answer4 = questionEntity.Answer4.ToUpper();
                 _context.Update(questionEntity);
                 await _context.SaveChangesAsync(); 
                 return RedirectToAction(nameof(Index));

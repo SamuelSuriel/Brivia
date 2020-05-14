@@ -1,9 +1,5 @@
 ﻿using Brivia.Web.Data.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Brivia.Web.Data
 {
@@ -14,5 +10,17 @@ namespace Brivia.Web.Data
         }
 
         public DbSet<QuestionEntity> Questions { get; set; }
+
+        public DbSet<CategoryEntity> Categories { get; set; }
+
+        public DbSet<UserEntity> UserEntities { get; set; }
+
+        //public DbSet<GameEntity> GameEntities { get; set; }
+
+        //public DbSet<GameDetailEntity> GameDetailEntities { get; set; }
+
+        //public DbSet<HistoricalEntity> HistoricalEntities { get; set; }
+
+
     }
 }

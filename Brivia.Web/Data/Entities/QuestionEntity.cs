@@ -13,10 +13,28 @@ namespace Brivia.Web.Data.Entities
         [Required(ErrorMessage = "The field {0} is mandatory.")]
         public string Question { get; set; }
 
-        [Required(ErrorMessage = "The field {0} is mandatory.")]
-        public string CorrectAnswer { get; set; }
+        public int IdCategory { get; set; }
 
+        [Display(Name = "Correct Answer")]
         [Required(ErrorMessage = "The field {0} is mandatory.")]
-        public virtual string IncorrectAnswers { get; set; }
+        public int CorrectAnswer { get; set; }
+
+        [Display(Name = "Answer 1")]
+        [Required(ErrorMessage = "The field {0} is mandatory.")]
+        public virtual string Answer1 { get; set; }
+
+        [Display(Name = "Answer 2")]
+        [Required(ErrorMessage = "The field {0} is mandatory.")]
+        public virtual string Answer2 { get; set; }
+
+        [Display(Name = "Answer 3")]
+        [Required(ErrorMessage = "The field {0} is mandatory.")]
+        public virtual string Answer3 { get; set; }
+
+        [Display(Name = "Answer 4")]
+        [Required(ErrorMessage = "The field {0} is mandatory.")]
+        public virtual string Answer4 { get; set; }
+
+        public int IdUser { get; set; }
     }
 }

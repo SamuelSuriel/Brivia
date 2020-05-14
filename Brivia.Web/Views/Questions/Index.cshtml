@@ -19,7 +19,16 @@
                 @Html.DisplayNameFor(model => model.CorrectAnswer)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IncorrectAnswers)
+                @Html.DisplayNameFor(model => model.Answer1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Answer2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Answer3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Answer4)
             </th>
             <th></th>
         </tr>
@@ -34,11 +43,20 @@
                 @Html.DisplayFor(modelItem => item.CorrectAnswer)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IncorrectAnswers)
+                @Html.DisplayFor(modelItem => item.Answer1)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ID" class="btn btn-warning">Edit</a> 
-                <a asp-action="Details" asp-route-id="@item.ID" class="btn btn-info">Details</a> 
+                @Html.DisplayFor(modelItem => item.Answer2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Answer3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Answer4)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID" class="btn btn-warning">Edit</a>
+                <a asp-action="Details" asp-route-id="@item.ID" class="btn btn-info">Details</a>
                 <a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger">Delete</a>
             </td>
         </tr>
