@@ -25,7 +25,6 @@ namespace Brivia.Web.Controllers
             return View(await _context.Questions.ToListAsync());
         }
 
-        // GET: Questions/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -43,21 +42,21 @@ namespace Brivia.Web.Controllers
             return View(questionEntity);
         }
 
-        // GET: Questions/Create
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Questions/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Question,CorrectAnswer,IncorrectAnswers")] QuestionEntity questionEntity)
+        public async Task<IActionResult> Create(QuestionEntity questionEntity)
         {
             if (ModelState.IsValid)
             {
+                questionEntity.Question = questionEntity.Question.ToUpper();
+                questionEntity.CorrectAnswer = questionEntity.CorrectAnswer.ToUpper();
+                questionEntity.IncorrectAnswers = questionEntity.IncorrectAnswers.ToUpper();
                 _context.Add(questionEntity);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -65,7 +64,7 @@ namespace Brivia.Web.Controllers
             return View(questionEntity);
         }
 
-        // GET: Questions/Edit/5
+
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -81,12 +80,10 @@ namespace Brivia.Web.Controllers
             return View(questionEntity);
         }
 
-        // POST: Questions/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+  
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Question,CorrectAnswer,IncorrectAnswers")] QuestionEntity questionEntity)
+        public async Task<IActionResult> Edit(int id, QuestionEntity questionEntity)
         {
             if (id != questionEntity.ID)
             {
@@ -95,28 +92,17 @@ namespace Brivia.Web.Controllers
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(questionEntity);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!QuestionEntityExists(questionEntity.ID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                questionEntity.Question = questionEntity.Question.ToUpper();
+                questionEntity.CorrectAnswer = questionEntity.CorrectAnswer.ToUpper();
+                questionEntity.IncorrectAnswers = questionEntity.IncorrectAnswers.ToUpper();
+                _context.Update(questionEntity);
+                await _context.SaveChangesAsync(); 
                 return RedirectToAction(nameof(Index));
             }
+
             return View(questionEntity);
         }
 
-        // GET: Questions/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -131,23 +117,9 @@ namespace Brivia.Web.Controllers
                 return NotFound();
             }
 
-            return View(questionEntity);
-        }
-
-        // POST: Questions/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var questionEntity = await _context.Questions.FindAsync(id);
             _context.Questions.Remove(questionEntity);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-        }
-
-        private bool QuestionEntityExists(int id)
-        {
-            return _context.Questions.Any(e => e.ID == id);
-        }
+        }       
     }
 }
