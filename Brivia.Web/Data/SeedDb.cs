@@ -102,6 +102,31 @@ namespace Brivia.Web.Data
             {
                 Description = "Apocalipsis"
             });
+
+            //_dataContext.UserEntities.Add(new UserEntity
+            //{
+            //    UserName = "Samuelrs",
+            //    Email = "samueldc29@gmail.com",
+            //    Password = "123",
+            //    Gain = 0,
+            //    Lost = 0
+            //});
+            //_dataContext.UserEntities.Add(new UserEntity
+            //{
+            //    UserName = "brad05",
+            //    Email = "brad@gmail.com",
+            //    Password = "123",
+            //    Gain = 0,
+            //    Lost = 0
+            //});
+            //_dataContext.UserEntities.Add(new UserEntity
+            //{
+            //    UserName = "nashla02",
+            //    Email = "nashla@gmail.com",
+            //    Password = "123",
+            //    Gain = 0,
+            //    Lost = 0
+            //});
             await _dataContext.SaveChangesAsync();
         }
     }

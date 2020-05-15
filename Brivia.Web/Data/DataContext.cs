@@ -15,6 +15,15 @@ namespace Brivia.Web.Data
 
         public DbSet<UserEntity> UserEntities { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<QuestionEntity>()
+        .HasIndex(t => t.Question)
+        .IsUnique();
+        }
+
         //public DbSet<GameEntity> GameEntities { get; set; }
 
         //public DbSet<GameDetailEntity> GameDetailEntities { get; set; }

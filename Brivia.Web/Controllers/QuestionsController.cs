@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using Brivia.Web.Data;
+﻿using Brivia.Web.Data;
 using Brivia.Web.Data.Entities;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Threading.Tasks;
 
 namespace Brivia.Web.Controllers
 {
@@ -31,7 +28,7 @@ namespace Brivia.Web.Controllers
                 return NotFound();
             }
 
-            var questionEntity = await _context.Questions
+            QuestionEntity questionEntity = await _context.Questions
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (questionEntity == null)
             {
@@ -59,8 +56,24 @@ namespace Brivia.Web.Controllers
                 questionEntity.Answer3 = questionEntity.Answer3.ToUpper();
                 questionEntity.Answer4 = questionEntity.Answer4.ToUpper();
                 _context.Add(questionEntity);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+
+                try
+                {
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                catch (Exception ex)
+                {
+                    if (ex.InnerException.Message.Contains("duplicate"))
+                    {
+                        ModelState.AddModelError(string.Empty, "Already exist a question like this!");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError(string.Empty, ex.InnerException.Message);
+                    }
+                }
+
             }
             return View(questionEntity);
         }
@@ -73,7 +86,7 @@ namespace Brivia.Web.Controllers
                 return NotFound();
             }
 
-            var questionEntity = await _context.Questions.FindAsync(id);
+            QuestionEntity questionEntity = await _context.Questions.FindAsync(id);
             if (questionEntity == null)
             {
                 return NotFound();
@@ -81,7 +94,7 @@ namespace Brivia.Web.Controllers
             return View(questionEntity);
         }
 
-  
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, QuestionEntity questionEntity)
@@ -99,8 +112,23 @@ namespace Brivia.Web.Controllers
                 questionEntity.Answer3 = questionEntity.Answer3.ToUpper();
                 questionEntity.Answer4 = questionEntity.Answer4.ToUpper();
                 _context.Update(questionEntity);
-                await _context.SaveChangesAsync(); 
-                return RedirectToAction(nameof(Index));
+
+                try
+                {
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                catch (Exception ex)
+                {
+                    if (ex.InnerException.Message.Contains("duplicate"))
+                    {
+                        ModelState.AddModelError(string.Empty, "Already exist a question like this!");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError(string.Empty, ex.InnerException.Message);
+                    }
+                }
             }
 
             return View(questionEntity);
@@ -113,7 +141,7 @@ namespace Brivia.Web.Controllers
                 return NotFound();
             }
 
-            var questionEntity = await _context.Questions
+            QuestionEntity questionEntity = await _context.Questions
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (questionEntity == null)
             {
@@ -123,6 +151,6 @@ namespace Brivia.Web.Controllers
             _context.Questions.Remove(questionEntity);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-        }       
+        }
     }
 }
