@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Brivia.Device.Services.Requests;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,5 +17,31 @@ namespace Brivia.Device.Views
 		{
 			InitializeComponent ();
 		}
-	}
+
+        private void BtnTodas_Clicked(object sender, EventArgs e)
+        {
+            QuestionService.GetRandomQuestion();
+            Application.Current.MainPage = new Juego();
+        }
+
+        private void BtnCiencia_Clicked(object sender, EventArgs e)
+        {
+            QuestionService.GetRandomQuestion("Ciencia");
+        }
+
+        private void BtnArte_Clicked(object sender, EventArgs e)
+        {
+            QuestionService.GetRandomQuestion("Arte");
+        }
+
+        private void BtnHistoria_Clicked(object sender, EventArgs e)
+        {
+            QuestionService.GetRandomQuestion("Historia");
+        }
+
+        private void BtnGeo_Clicked(object sender, EventArgs e)
+        {
+            QuestionService.GetRandomQuestion("Geografia");
+        }
+    }
 }
