@@ -27,6 +27,7 @@ namespace Brivia.Device.Views.Starting
                 DisplayAlert("Error", "¡El usuario no pudo ser encontrado!", "OK");
                 return;
             }
+            Application.Current.MainPage = new SelectCategory();
         }
     }
 }
