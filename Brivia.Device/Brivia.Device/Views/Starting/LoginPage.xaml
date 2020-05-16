@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Brivia.Device.Views.Starting.LoginPage"
+             Title="{Binding Title}">
+    <ContentPage.Content>
+        <StackLayout Margin="10,35,10,10">
+            <!--Title-->
+            <Label Text="Bienvenido"
+               HorizontalOptions="Center"
+               FontSize="32"
+               FontAttributes="Bold"
+               TextColor="Black"/>
+
+            <!--Logo-->
+            <Image Source="https://heartdevs.com/dist/images/logo-he4rt.png" 
+                   WidthRequest="125" 
+                   HeightRequest="125" />
+
+            <!--Inputs-->
+            <Editor x:Name="loginLbl"
+                Placeholder="Ingrese su nombre de usuario"
+                HeightRequest="100"
+                TextColor="Black"
+                Margin="0, 25, 0, 0" />
+
+            <Entry x:Name="senhaLbl"
+                Placeholder="Ingresa tu contraseña"
+                HeightRequest="100"
+                TextColor="Black"
+                Keyboard="Text"
+                IsPassword="True" />
+
+            <Button Text="Login" 
+                BackgroundColor="#6f32bf"
+                Margin="0, 0, 0, 13" />
+            <!--Grid Buttons-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!--Buttons-->
+                <Button Text="Register" BackgroundColor="#6f32bf" />
+                <!--Buttons-->
+                <Button Text="Forgot" Grid.Column="1" BackgroundColor="#6f32bf" />
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage> 
