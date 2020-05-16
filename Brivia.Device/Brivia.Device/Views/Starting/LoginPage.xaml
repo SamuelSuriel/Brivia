@@ -21,22 +21,24 @@
                    HeightRequest="125" />
 
             <!--Inputs-->
-            <Editor x:Name="loginLbl"
+            <Entry x:Name="loginLbl"
                 Placeholder="Ingrese su nombre de usuario"
                 HeightRequest="100"
                 TextColor="Black"
-                Margin="0, 25, 0, 0" />
+                 Keyboard="Email"
+                Margin="0, 28, 0, 0"
+                IsPassword="False" />
 
-            <Entry x:Name="senhaLbl"
+            <Entry x:Name="passwordLbl"
                 Placeholder="Ingresa tu contraseña"
                 HeightRequest="100"
                 TextColor="Black"
-                Keyboard="Text"
                 IsPassword="True" />
 
             <Button Text="Login" 
                 BackgroundColor="#6f32bf"
-                Margin="0, 0, 0, 13" />
+                Margin="0, 0, 0, 13" 
+                    Clicked="Login_Clicked"/>
             <!--Grid Buttons-->
             <Grid>
                 <Grid.ColumnDefinitions>

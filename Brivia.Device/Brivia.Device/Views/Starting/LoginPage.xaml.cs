@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Brivia.Device.Models;
+using Brivia.Device.Services.Requests;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +17,16 @@ namespace Brivia.Device.Views.Starting
         public LoginPage()
         {
             InitializeComponent();
+        }
+
+        private void Login_Clicked(object sender, EventArgs e)
+        {
+            var user = UserService.SearchUser(this.loginLbl.Text, this.passwordLbl.Text);
+            if (user == null)
+            {
+                DisplayAlert("Error", "¡El usuario no pudo ser encontrado!", "OK");
+                return;
+            }
         }
     }
 }
