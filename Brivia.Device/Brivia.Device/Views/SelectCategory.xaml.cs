@@ -3,7 +3,6 @@ using System;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using static Brivia.Device.Services.QuestionService;
 
 namespace Brivia.Device.Views
 {
@@ -18,8 +17,7 @@ namespace Brivia.Device.Views
         private void Categoria_Clicked(object sender, EventArgs e)
         {
             Button btn = sender as Button;
-            QuestionModel question = btn.Text == "Todas" ? GetRandomQuestion() : GetRandomQuestion(btn.Text);
-            Application.Current.MainPage = new Juego(question);
+            Application.Current.MainPage = new Juego(btn.Text);
         }
     }
 }

@@ -29,5 +29,10 @@ namespace Brivia.Device.Views.Starting
             }
             Application.Current.MainPage = new SelectCategory();
         }
+
+        private void Register_Clicked(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new Register();
+        }
     }
 }

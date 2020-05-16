@@ -19,7 +19,7 @@
 
             <!--Todas-->
             <Button 
-                Clicked="BtnTodas_Clicked"
+                Clicked="Categoria_Clicked"
                 Text="Todas"
                 BackgroundColor="DarkGreen"
                 FontSize="Large"

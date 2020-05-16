@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Brivia.Device.Views.Starting.Register">
+    <ContentPage.Content>
+        <StackLayout Margin="10,35,10,10">
+            <!--Title-->
+            <Label Text="Registrarse"
+               HorizontalOptions="Center"
+               FontSize="32"
+               FontAttributes="Bold"
+               TextColor="Black" />
+
+            <!--Logo-->
+            <Image Source="https://i.imgur.com/WqV0K6P.png" 
+                   Margin="25"
+                   WidthRequest="125" 
+                   HeightRequest="125" />
+
+            <!--Inputs-->
+            <Entry x:Name="loginLbl"
+                Placeholder="Usuario"
+                HeightRequest="100"
+                TextColor="Black"
+                Keyboard="Email"
+                Margin="0, 28, 0, 0"
+                IsPassword="False" />
+
+            <Entry x:Name="passwordLbl"
+                Placeholder="Ingrese su Contraseña"
+                HeightRequest="100"
+                TextColor="Black"
+                IsPassword="True" />
+
+            <!--Button Registrarse-->
+            <Button Text="Registrarse" 
+                BackgroundColor="#6f32bf"
+                Margin="0, 0, 0, 13" />
+
+
+            <!--Button Volver-->
+            <Button Text="Volver" BackgroundColor="#6f32bf" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

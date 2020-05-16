@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Brivia.Device.Views.Starting.LoginPage"
-             Title="{Binding Title}">
+             Title="Login">
     <ContentPage.Content>
         <StackLayout Margin="10,35,10,10">
             <!--Title-->
@@ -48,9 +48,15 @@
                 </Grid.ColumnDefinitions>
 
                 <!--Buttons-->
-                <Button Text="Register" BackgroundColor="#6f32bf" />
+                <Button Text="Register" 
+                        BackgroundColor="#6f32bf" 
+                        Clicked="Register_Clicked"
+                        />
                 <!--Buttons-->
-                <Button Text="Forgot" Grid.Column="1" BackgroundColor="#6f32bf" />
+                <Button Text="About" 
+                        Grid.Column="1" 
+                        BackgroundColor="#6f32bf" 
+                        />
             </Grid>
         </StackLayout>
     </ContentPage.Content>
