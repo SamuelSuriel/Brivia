@@ -91,11 +91,5 @@
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Brivia.Prism\Brivia.Prism.csproj">
-      <Project>{A682884C-CB44-4A89-B752-27BB634E0ABE}</Project>
-      <Name>Brivia.Prism</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
