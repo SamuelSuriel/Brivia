@@ -24,6 +24,7 @@
   <ItemGroup>
     <Folder Include="Models\ManagerQuestions\" />
     <Folder Include="Models\Menu\" />
+    <Folder Include="Services\Requests\" />
     <Folder Include="ViewModels\ManagerQuestions\" />
     <Folder Include="ViewModels\Menu\" />
     <Folder Include="ViewModels\Starting\" />
