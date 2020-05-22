@@ -34,7 +34,5 @@ namespace Brivia.Web.Data.Entities
         [Display(Name = "Answer 4")]
         [Required(ErrorMessage = "The field {0} is mandatory.")]
         public virtual string Answer4 { get; set; }
-
-        public int IdUser { get; set; }
     }
 }
