@@ -13,6 +13,7 @@ namespace Brivia.Web.Data
 
         public DbSet<CategoryEntity> Categories { get; set; }
 
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

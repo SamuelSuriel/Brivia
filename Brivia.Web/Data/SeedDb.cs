@@ -9,10 +9,12 @@ namespace Brivia.Web.Data
     public class SeedDb
     {
         private readonly DataContext _dataContext;
+        private Random _random;
 
         public SeedDb(DataContext dataContext)
         {
             _dataContext = dataContext;
+            _random = new Random();
         }
 
         public async Task SeedAsync()
@@ -35,7 +37,7 @@ namespace Brivia.Web.Data
                 Answer2 = "50 años",
                 Answer3 = "30 años",
                 Answer4 = "20 años",
-                CorrectAnswer = 1
+                CorrectAnswer = "Answer1"
             });
             _dataContext.Questions.Add(new QuestionEntity
             {
@@ -44,7 +46,7 @@ namespace Brivia.Web.Data
                 Answer2 = "Pilato",
                 Answer3 = "Herodes",
                 Answer4 = "Salomon",
-                CorrectAnswer = 2
+                CorrectAnswer = "Answer2"
             });
             _dataContext.Questions.Add(new QuestionEntity
             {
@@ -53,7 +55,7 @@ namespace Brivia.Web.Data
                 Answer2 = "No mataras",
                 Answer3 = "Amaras a tu prójimo como a ti mismo",
                 Answer4 = "No robaras",
-                CorrectAnswer = 3
+                CorrectAnswer = "Answer3"
             });
             _dataContext.Questions.Add(new QuestionEntity
             {
@@ -62,7 +64,7 @@ namespace Brivia.Web.Data
                 Answer2 = "David",
                 Answer3 = "Salomon",
                 Answer4 = "Acaz",
-                CorrectAnswer = 4
+                CorrectAnswer = "Answer4"
             });
             _dataContext.Questions.Add(new QuestionEntity
             {
@@ -71,7 +73,7 @@ namespace Brivia.Web.Data
                 Answer2 = "7 años",
                 Answer3 = "17 años",
                 Answer4 = "10 años",
-                CorrectAnswer = 2
+                CorrectAnswer = "Answer2"
             });
 
             _dataContext.Categories.Add(new CategoryEntity
