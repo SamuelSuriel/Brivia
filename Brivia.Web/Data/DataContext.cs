@@ -13,7 +13,6 @@ namespace Brivia.Web.Data
 
         public DbSet<CategoryEntity> Categories { get; set; }
 
-        public DbSet<UserEntity> UserEntities { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -23,13 +22,5 @@ namespace Brivia.Web.Data
         .HasIndex(t => t.Question)
         .IsUnique();
         }
-
-        //public DbSet<GameEntity> GameEntities { get; set; }
-
-        //public DbSet<GameDetailEntity> GameDetailEntities { get; set; }
-
-        //public DbSet<HistoricalEntity> HistoricalEntities { get; set; }
-
-
     }
 }
